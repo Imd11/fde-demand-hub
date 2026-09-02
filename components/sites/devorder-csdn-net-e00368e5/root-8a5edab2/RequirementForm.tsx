@@ -1,7 +1,7 @@
 'use client';
 
 import { type ReactNode, type SyntheticEvent, useState } from 'react';
-import { ArrowRight, Check, CheckCircle2, ClipboardList } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ClipboardList } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -121,9 +121,6 @@ export function RequirementForm() {
           <h2 className="text-2xl font-semibold tracking-[-0.035em] text-[#17181c] sm:text-[30px]">
             需求信息已记录
           </h2>
-          <p className="mt-3 max-w-sm text-sm leading-6 text-[#6c6b67]">
-            当前是前端演示版，信息仅暂存在本浏览器。后端接入后将自动改为正式提交与统一入库。
-          </p>
           <div className="my-7 rounded-xl border border-dashed border-black/[0.13] bg-[#faf9f6] px-5 py-3 font-mono text-sm font-semibold tracking-[0.04em] text-[#313238]">
             {requestId}
           </div>
@@ -302,15 +299,6 @@ export function RequirementForm() {
             </div>
           </div>
 
-          <label className="flex cursor-pointer items-start gap-2.5 rounded-[10px] bg-[#f7f6f2] px-3.5 py-3 text-[12px] leading-5 text-[#686762]">
-            <input
-              type="checkbox"
-              required
-              className="mt-0.5 size-4 rounded border-black/20 accent-[#e04520]"
-            />
-            <span>我确认以上信息可以用于需求评估和后续开发对接。</span>
-          </label>
-
           <Button
             type="submit"
             className="h-12 w-full rounded-[10px] bg-[#e04520] px-5 text-sm font-semibold text-white shadow-[0_8px_20px_rgba(224,69,32,0.22)] hover:-translate-y-px hover:bg-[#c93b1a] active:translate-y-0"
@@ -319,10 +307,6 @@ export function RequirementForm() {
             <ArrowRight className="size-4" />
           </Button>
 
-          <p className="flex items-center justify-center gap-1.5 text-center text-[11px] leading-5 text-[#95938c]">
-            <Check className="size-3.5" />
-            当前为前端演示，后端接入 `/api/requirements` 后即可正式入库
-          </p>
         </form>
       </CardContent>
     </Card>

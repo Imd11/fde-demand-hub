@@ -1,4 +1,4 @@
-import { ArrowDownRight, CircleCheck, Code2, MessageSquareText } from 'lucide-react';
+import { CircleCheck, Code2, MessageSquareText } from 'lucide-react';
 
 import { AppHeader } from '@/components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/AppHeader';
 import { RequirementForm } from '@/components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/RequirementForm';
@@ -70,13 +70,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="mt-8 flex items-start gap-3 rounded-xl border border-black/[0.07] bg-white/55 p-4">
-              <ArrowDownRight className="mt-0.5 size-[18px] shrink-0 text-[#e04520]" />
-              <p className="text-[12px] leading-5 text-[#73716b]">
-                <span className="font-semibold text-[#393a3e]">给开发同学：</span>
-                表单字段已整理好，后续只需接入提交接口和数据库，无需再改页面结构。
-              </p>
-            </div>
           </div>
 
           <RequirementForm />
@@ -84,9 +77,8 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-black/[0.07] bg-[#f1f0eb]">
-        <div className="mx-auto flex w-full max-w-[1180px] flex-col gap-2 px-5 py-5 text-[11px] text-[#88867f] sm:flex-row sm:items-center sm:justify-between sm:px-8">
+        <div className="mx-auto w-full max-w-[1180px] px-5 py-5 text-[11px] text-[#88867f] sm:px-8">
           <p>© 2026 FDE 需求台 · 内部需求统一入口</p>
-          <p>仅收集需求评估所需信息</p>
         </div>
       </footer>
     </main>
