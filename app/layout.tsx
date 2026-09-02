@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://fde-demand-hub.jaylenbebetter1028.chatgpt.site'),
   title: 'FDE 需求台｜内部需求统一入口',
   description: '快速收集需求背景、目标、优先级和联系方式，便于后续开发评估与对接。',
   openGraph: {
