@@ -1,6 +1,6 @@
-# FDE 需求台
+# 产业园 FDE 总站
 
-一个最简的内部需求收集前端。页面基于 OpenAI Sites + shadcn/ui 搭建，并参考 DevOrder 的克制视觉语言重新组合为单页工作流；没有复制 CSDN 品牌、Logo 或文案。
+面向企业咨询者的中文单页，由 CSDN 与序动科技双品牌页头、服务介绍、问题输入框和联系方式组成。问题、姓名与手机或邮箱必填。咨询免费。
 
 ## 本地运行
 
@@ -9,49 +9,16 @@ npm install
 npm run dev
 ```
 
-## 当前行为
+## 当前交互
 
-- 校验必填字段。
-- 生成前端演示编号 `REQ-YYYYMMDD-XXXX`。
-- 暂存最近 20 条演示数据到浏览器 `localStorage` 的 `fde-requirement-demo`。
-- 不会把信息发送到服务器；成功页已明确提示这是前端演示。
+- 校验问题、姓名和联系方式。
+- 当前是前端交互预览：点击咨询后，草稿保存到本机 localStorage 的 fde-consultation-draft，不发送给服务团队。
+- 页面明确反馈本地暂存状态，不模拟后台接单或 AI 回答。
+- 正式上线前需接入真实收件接口及数据使用说明。
 
-## 后端接入约定
+## 文件
 
-把 `RequirementForm.tsx` 中的本地暂存逻辑替换为：
-
-```http
-POST /api/requirements
-Content-Type: application/json
-```
-
-请求体：
-
-```json
-{
-  "title": "官网新增线索收集表单",
-  "type": "网站与产品",
-  "priority": "普通",
-  "description": "使用场景、目标用户、问题与期待结果",
-  "expectedDate": "2026-09-15",
-  "budget": "5000-20000 元",
-  "requester": "张三",
-  "contact": "飞书 / 手机 / 邮箱"
-}
-```
-
-建议成功响应：
-
-```json
-{
-  "id": "REQ-20260902-AB12",
-  "status": "submitted",
-  "createdAt": "2026-09-02T10:00:00+08:00"
-}
-```
-
-前端源文件：
-
-- `app/page.tsx`：页面布局和流程说明。
-- `components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/RequirementForm.tsx`：字段、校验与提交逻辑。
-- `app/globals.css`：视觉令牌。
+- app/page.tsx：单页结构。
+- app/globals.css：桌面与手机布局。
+- components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/RequirementForm.tsx：问题、姓名、联系方式和预览交互。
+- public/brand/README.md：真实 Logo 来源。

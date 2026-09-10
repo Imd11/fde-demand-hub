@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://fde-demand-hub.jaylenbebetter1028.chatgpt.site'),
-  title: 'FDE 需求台｜内部需求统一入口',
-  description: '快速收集需求背景、目标、优先级和联系方式，便于后续开发评估与对接。',
+  title: '产业园 FDE 总站｜序动科技',
+  description: '免费咨询企业 AI 应用问题，连接真实业务需求与专业开发者。',
   openGraph: {
-    title: 'FDE 需求台｜内部需求统一入口',
-    description: '3 分钟说清需求，更快进入开发对接。',
+    title: '产业园 FDE 总站｜序动科技',
+    description: '关于 AI，从你的问题开始。',
     type: 'website',
     images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'FDE 需求台｜内部需求统一入口',
-    description: '3 分钟说清需求，更快进入开发对接。',
+    title: '产业园 FDE 总站｜序动科技',
+    description: '关于 AI，从你的问题开始。',
     images: ['/og.png'],
   },
 };
