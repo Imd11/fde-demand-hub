@@ -33,7 +33,7 @@ export function RequirementForm() {
   return (
     <div className="consultation">
       <form className="consultation-form" onSubmit={submit}>
-        <div className="question-heading consultation-heading"><label htmlFor="question">你想解决的问题</label><span className="free-consultation-badge">咨询免费</span></div>
+        <div className="question-heading consultation-heading"><label htmlFor="question">你想解决的问题</label><span className="free-consultation-badge">免费咨询</span></div>
         <div className="question-card">
         <textarea ref={input} id="question" name="question" maxLength={2000} required value={question} onChange={e => { setQuestion(e.target.value); setSaved(false); }} placeholder="哪项工作最费时间，或者哪个环节最想改善？" />
         </div>
