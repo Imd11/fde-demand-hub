@@ -20,9 +20,13 @@ export function RequirementForm() {
     const rawName = data.get('name');
     const name = typeof rawName === 'string' ? rawName.trim() : '';
     if (!question.trim()) { setError('请先简单说说你的问题。'); input.current?.focus(); return; }
+    const rawCompany = data.get('company');
+    const company = typeof rawCompany === 'string' ? rawCompany.trim() : '';
+    if (!name) { setError('请填写姓名。'); return; }
+    if (!company) { setError('请填写公司名称。'); return; }
     if (!contact) { setError('请留下手机或邮箱，便于后续联系。'); return; }
     try {
-      localStorage.setItem('fde-consultation-draft', JSON.stringify({ question: question.trim(), name, contact }));
+      localStorage.setItem('fde-consultation-draft', JSON.stringify({ question: question.trim(), name, company, contact }));
       setError('');
       setSaved(true);
     } catch {
@@ -40,7 +44,7 @@ export function RequirementForm() {
         <div className="consultation-details">
           <div className="contact-fields">
             <label><span>姓名</span><input name="name" required autoComplete="name" placeholder="你的姓名" maxLength={80} /></label>
-            
+            <label className="company-field"><span>公司名称</span><input name="company" required autoComplete="organization" placeholder="你的公司名称" maxLength={160} /></label>
             <label className="contact-field"><span>联系方式</span><input name="contact" required placeholder="手机或邮箱" maxLength={160} /></label>
           </div>
         </div>

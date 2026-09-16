@@ -1,0 +1,24 @@
+Tool: built-in image_gen.imagegen
+Mode: generate, one asset, no reference images; generated once.
+Original: /Users/yang/.codex/generated_images/01a0a424-ead2-7922-b1a0-6021fc6b80af/exec-396d1607-235e-4f95-a7d8-ec8be080ca6b.png
+
+Use case: photorealistic-natural.
+Asset type: one reusable photographic portrait atlas / CSS sprite for a premium Chinese expert consultant directory.
+
+Create ONE seamless contact sheet containing exactly TEN fictional Chinese adult professional head-and-shoulders studio portraits, in a mathematically precise FIVE-COLUMN by TWO-ROW grid. Overall canvas aspect ratio exactly 5:2, ideally 2560x1024 pixels, so every cell is square. All ten square cells must fill the image flush edge-to-edge, with ZERO gaps, gutters, borders, margins, frame lines, labels, text, numbers, graphics, or UI. One subject per cell, ten subjects total.
+
+All cells have the same soft light-gray studio backdrop, identical camera distance and centered framing: entire head including top hair visible; face centered around 45% of cell height; shoulders visible and cropped at lower edge. Quiet refined editorial studio photography, real human facial asymmetry, natural skin texture, fine pores, understated approachable expressions and slight smiles. Soft broad studio light and realistic subtle shading. Muted near-monochrome palette with natural low-saturation skin. Smart casual dark charcoal knitwear or understated dark blazers with simple shirts, without ties or logos. Credibly different faces, hairstyles and clothing; no repetition of identities.
+
+Cell order, left to right:
+Top row cell 1: Chinese man late 30s, short hair.
+Top row cell 2: Chinese woman early 30s, shoulder-length hair.
+Top row cell 3: Chinese man in his 40s, subtle glasses.
+Top row cell 4: Chinese man mid 30s, short hair.
+Top row cell 5: Chinese man early 30s.
+Bottom row cell 1: Chinese woman early 30s, bob haircut.
+Bottom row cell 2: Chinese woman mid 30s, long hair.
+Bottom row cell 3: Chinese man late 30s, rectangular glasses.
+Bottom row cell 4: Chinese man mid 40s.
+Bottom row cell 5: Chinese woman early 30s, medium-length hair.
+
+All people are fictional adults, not existing people. Photographic realism, no illustration, no beauty-filter plastic skin, no glamour retouching. Keep exact five by two grid and equal square crop geometry.
