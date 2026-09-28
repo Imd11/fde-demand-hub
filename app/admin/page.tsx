@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useState, type SyntheticEvent } from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import Link from 'next/link';
 import { AppHeader } from '@/components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/AppHeader';
 import './admin.css';
 
@@ -31,6 +30,12 @@ async function api(path: string, init?: RequestInit) {
   const body = await response.json() as ApiResponse;
   if (!response.ok) throw new Error(body.error || '操作失败。');
   return body;
+}
+
+function HomeLink() {
+  // Vinext's client router fails on this production route; use a full page navigation.
+  // oxlint-disable-next-line next/no-html-link-for-pages
+  return <a href="/">返回 FDE 首页</a>;
 }
 
 export default function AdminPage() {
@@ -112,7 +117,7 @@ export default function AdminPage() {
   }
 
   return <main className="fde-admin">
-    <div className="admin-header-shell"><AppHeader><nav className="admin-nav" aria-label="管理后台导航"><Link href="/">返回 FDE 首页</Link>{mode === 'dashboard' && <button type="button" className="quiet" onClick={logout}>退出登录</button>}</nav></AppHeader></div>
+    <div className="admin-header-shell"><AppHeader><nav className="admin-nav" aria-label="管理后台导航"><HomeLink />{mode === 'dashboard' && <button type="button" className="quiet" onClick={logout}>退出登录</button>}</nav></AppHeader></div>
     {mode === 'loading' && <div className="auth-stage"><span className="admin-eyebrow"><span />产业园 FDE 总站 · 需求管理</span><p className="hint">正在检查登录状态…</p></div>}
     {(mode === 'setup' || mode === 'login') && <div className="auth-stage">
       <div className="auth-intro"><span className="admin-eyebrow"><span />产业园 FDE 总站 · 需求管理</span><h1>让每一个问题，<br className="admin-mobile-break" />都有回应。</h1><p>查看需求、跟进进展，让好的想法继续向前。</p></div>
