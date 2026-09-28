@@ -19,7 +19,10 @@ The PostgreSQL intake API requires the Node deployment and a configured PostgreS
 - Company website: `/srv/cloudsequ/current`, Nginx `127.0.0.1:8080`.
 - FDE: `/srv/fde/current`, Node `127.0.0.1:3001`, Nginx `127.0.0.1:8081`.
 - PostgreSQL: database/role `fde`, Unix socket peer authentication; no public database port.
-- Form submissions: `requirements` table. No public read endpoint or admin UI is provided.
+- Form submissions: `requirements` table. Administrators use `https://fde.cloudsequ.com/admin` to review, update status and internal notes, and export CSV.
+- Before releasing the admin UI, back up the database and apply `deploy/admin-migration.sql` as the `fde` PostgreSQL role. The release script does not run migrations.
+- Create one `admin_users` row with username `admin` and a SHA-256 hash of a random one-time setup code (48-hour expiry). Send only the code to the site owner; the owner sets their own password over HTTPS. Do not store the code or password in Git or application configuration.
+- Admin sessions last eight hours, are stored as hashed tokens in PostgreSQL, and use Secure, HttpOnly, SameSite=Strict cookies. `/api/admin/requirements`, record updates and CSV export all verify the session on the server. Apply the `fde_admin_auth` Nginx rate limit when updating the public Nginx configuration.
 - `schema.sql` initializes the table; run as the `fde` OS user.
 - `fde.service` runs as an unprivileged user, starts on boot, and restarts on failures.
 - `nginx-preview.conf` limits submission size and rate.
