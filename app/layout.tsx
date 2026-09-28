@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://fde-demand-hub.jaylenbebetter1028.chatgpt.site'),
+  metadataBase: new URL('https://fde.cloudsequ.com'),
   title: '产业园 FDE 总站｜序动科技',
   description: '免费咨询企业 AI 应用问题，连接真实业务需求与专业开发者。',
   openGraph: {
