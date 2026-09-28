@@ -133,6 +133,14 @@
 .detail-panel .full-question { white-space: pre-wrap; line-height: 1.8; }
 .detail-panel > button { align-self: flex-start; }
 .detail-panel textarea { resize: vertical; }
+@media (min-width: 641px) and (max-height: 850px) {
+  .auth-stage { padding-top: 36px; padding-bottom: 34px; }
+  .auth-intro h1 { margin: 14px 0 8px; font-size: clamp(34px, 3.6vw, 50px); }
+  .auth-card { margin-top: 28px; padding-top: 26px; padding-bottom: 27px; }
+  .auth-card > .hint { margin-top: 14px; }
+  .auth-card form { gap: 14px; margin-top: 19px; }
+  .auth-footnote { margin-top: 13px; }
+}
 @media (max-width: 900px) {
   .filter-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .filter-bar button { grid-column: 1 / -1; }
