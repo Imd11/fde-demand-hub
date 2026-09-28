@@ -5,5 +5,6 @@ CREATE TABLE IF NOT EXISTS requirements (
   company varchar(160) NOT NULL,
   contact varchar(160) NOT NULL,
   status text NOT NULL DEFAULT 'new',
+  internal_note text NOT NULL DEFAULT '',
   created_at timestamptz NOT NULL DEFAULT now()
 );
