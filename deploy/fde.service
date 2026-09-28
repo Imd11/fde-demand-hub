@@ -1,0 +1,26 @@
+[Unit]
+Description=Cloudsequ FDE application
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=fde
+Group=fde
+WorkingDirectory=/srv/fde/current
+Environment=NODE_ENV=production
+Environment=HOST=127.0.0.1
+Environment=PORT=3001
+Environment=PGHOST=/var/run/postgresql
+Environment=PGUSER=fde
+Environment=PGDATABASE=fde
+Environment=APP_ORIGIN=http://localhost:18081
+ExecStart=/opt/node24/bin/node /srv/fde/current/server.js
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+
+[Install]
+WantedBy=multi-user.target
