@@ -112,7 +112,7 @@ export default function AdminPage() {
   }
 
   return <main className="fde-admin">
-    <AppHeader><nav className="admin-nav" aria-label="管理后台导航"><Link href="/">返回 FDE 首页</Link>{mode === 'dashboard' && <button type="button" className="quiet" onClick={logout}>退出登录</button>}</nav></AppHeader>
+    <div className="admin-header-shell"><AppHeader><nav className="admin-nav" aria-label="管理后台导航"><Link href="/">返回 FDE 首页</Link>{mode === 'dashboard' && <button type="button" className="quiet" onClick={logout}>退出登录</button>}</nav></AppHeader></div>
     {mode === 'loading' && <div className="auth-stage"><span className="admin-eyebrow"><span />产业园 FDE 总站 · 需求管理</span><p className="hint">正在检查登录状态…</p></div>}
     {(mode === 'setup' || mode === 'login') && <div className="auth-stage">
       <div className="auth-intro"><span className="admin-eyebrow"><span />产业园 FDE 总站 · 需求管理</span><h1>让每一个问题，<br className="admin-mobile-break" />都有回应。</h1><p>查看需求、跟进进展，让好的想法继续向前。</p></div>
