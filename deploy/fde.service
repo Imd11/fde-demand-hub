@@ -13,7 +13,7 @@ Environment=PORT=3001
 Environment=PGHOST=/var/run/postgresql
 Environment=PGUSER=fde
 Environment=PGDATABASE=fde
-Environment=APP_ORIGIN=http://localhost:18081
+Environment=APP_ORIGIN=https://fde.cloudsequ.com
 ExecStart=/opt/node24/bin/node /srv/fde/current/server.js
 Restart=on-failure
 RestartSec=5

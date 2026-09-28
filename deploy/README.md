@@ -14,7 +14,7 @@ Deploy that directory to `/srv/fde/current`, then restart `fde.service`.
 The default Cloudflare scripts are retained for the original preview environment.
 The PostgreSQL intake API requires the Node deployment and a configured PostgreSQL database.
 
-## Current preview topology
+## Current deployment topology
 
 - Company website: `/srv/cloudsequ/current`, Nginx `127.0.0.1:8080`.
 - FDE: `/srv/fde/current`, Node `127.0.0.1:3001`, Nginx `127.0.0.1:8081`.
@@ -24,13 +24,17 @@ The PostgreSQL intake API requires the Node deployment and a configured PostgreS
 - `fde.service` runs as an unprivileged user, starts on boot, and restarts on failures.
 - `nginx-preview.conf` limits submission size and rate.
 - Preview uses an SSH tunnel mapping local port 18080 to 8080 and 18081 to 8081.
-- `APP_ORIGIN=http://localhost:18081` is intentionally limited to the local preview.
+- Public hostnames: `https://cloudsequ.com` and `https://fde.cloudsequ.com`.
+- `nginx-public.conf` serves HTTPS on port 443 and redirects port 80 to HTTPS.
+- `APP_ORIGIN=https://fde.cloudsequ.com`; form submission is restricted to the public FDE origin.
+- Let’s Encrypt certificate renewal uses certbot.timer and an Nginx deploy hook.
 
 ## Before public launch
 
-Complete ICP filing for the mainland deployment. Configure DNS without changing the
-existing email MX/TXT/CNAME records. Obtain HTTPS certificates and configure public
-Nginx listeners. Change `APP_ORIGIN` to `https://fde.cloudsequ.com` and restart FDE.
+Public DNS and HTTPS were configured on 2026-09-28 at the owner’s request; HTTP 200
+and a synthetic form submission were verified. ICP filing is still outstanding, so
+current reachability does not guarantee continued provider access. Email DNS records
+were preserved.
 Review privacy notice/consent and retention for collected contact information;
 replace or clearly identify fictional expert profiles. The company site's browser-only
 password/localStorage workspace features do not provide server authentication.
