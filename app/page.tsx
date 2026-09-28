@@ -1,4 +1,4 @@
-import { MapPin } from 'lucide-react';
+import { MapPin, UserRound } from 'lucide-react';
 import { AppHeader } from '@/components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/AppHeader';
 import { RequirementForm } from '@/components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/RequirementForm';
 
@@ -30,10 +30,10 @@ export default function Home() {
           <h2 id="experts-title">FDE 专家</h2>
         </div>
         <div className="experts-grid">
-          {demoExperts.map((expert, index) => (
+          {demoExperts.map((expert) => (
             <article className="expert-card" key={expert.name} aria-label={`${expert.name}，模拟专家资料`}>
               <div className="expert-identity">
-                <div className="expert-avatar" style={{ backgroundPosition: `${(index % 5) * 25}% ${index < 5 ? 0 : 100}%` }} aria-hidden="true" />
+                <div className="expert-avatar" aria-hidden="true"><UserRound size={34} strokeWidth={1.5} /></div>
                 <div className="expert-profile">
                   <div className="expert-name-row">
                     <h3>{expert.name}</h3>
