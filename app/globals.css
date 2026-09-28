@@ -201,3 +201,8 @@
   .experts-grid { grid-template-columns:1fr; gap:16px; }
   .expert-card { padding:24px; }
 }
+
+/* Shared company logo: compact spacing accounts for the image padding. */
+.xudong-logo-lockup { display:flex; align-items:center; gap:2px; flex-shrink:0; }
+.xudong-cloud-symbol { width:72px; height:36px; object-fit:contain; flex:none; margin-right:-3px; mix-blend-mode:multiply; }
+@media(max-width:640px) { .xudong-cloud-symbol { width:60px; height:30px; margin-right:-2px; } }
