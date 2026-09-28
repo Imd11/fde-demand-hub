@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import type { ReactNode } from 'react';
 
-export function AppHeader() {
+export function AppHeader({ children }: { children?: ReactNode }) {
   return (
     <header className="site-header">
       <div className="brand-pair" aria-label="CSDN 与序动科技">
@@ -8,7 +9,7 @@ export function AppHeader() {
         <span className="brand-divider" aria-hidden="true" />
         <div className="xudong-wordmark" aria-label="序动科技">序动科技</div>
       </div>
-      
+      {children}
     </header>
   );
 }

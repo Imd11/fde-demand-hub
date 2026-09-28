@@ -1,6 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useState, type SyntheticEvent } from 'react';
+import { ArrowUpRight } from 'lucide-react';
+import Link from 'next/link';
+import { AppHeader } from '@/components/sites/devorder-csdn-net-e00368e5/root-8a5edab2/AppHeader';
 import './admin.css';
 
 type Requirement = {
@@ -109,20 +112,24 @@ export default function AdminPage() {
   }
 
   return <main className="fde-admin">
-    <header className="admin-header"><div><span className="admin-brand">FDE</span><span>需求管理</span></div>{mode === 'dashboard' && <button type="button" className="quiet" onClick={logout}>退出登录</button>}</header>
-    {mode === 'loading' && <section className="auth-card">正在检查登录状态…</section>}
-    {(mode === 'setup' || mode === 'login') && <section className="auth-card">
-      <p className="eyebrow">管理员入口</p><h1>{mode === 'setup' ? '启用管理员账号' : '登录需求后台'}</h1>
-      <p className="hint">{mode === 'setup' ? '首次启用请填入一次性启用码，并设置你自己的密码。' : '仅管理员可查看、处理和导出用户需求。'}</p>
+    <AppHeader><nav className="admin-nav" aria-label="管理后台导航"><Link href="/">返回 FDE 首页</Link>{mode === 'dashboard' && <button type="button" className="quiet" onClick={logout}>退出登录</button>}</nav></AppHeader>
+    {mode === 'loading' && <div className="auth-stage"><span className="admin-eyebrow"><span />产业园 FDE 总站 · 需求管理</span><p className="hint">正在检查登录状态…</p></div>}
+    {(mode === 'setup' || mode === 'login') && <div className="auth-stage">
+      <div className="auth-intro"><span className="admin-eyebrow"><span />产业园 FDE 总站 · 需求管理</span><h1>让每一个问题，<br className="admin-mobile-break" />都有回应。</h1><p>查看需求、跟进进展，让好的想法继续向前。</p></div>
+      <section className="auth-card" aria-labelledby="auth-title">
+      <div className="auth-card-heading"><span className="auth-card-mark" aria-hidden="true">FDE</span><div><p className="eyebrow">管理员工作台</p><h2 id="auth-title">{mode === 'setup' ? '启用管理员账号' : '欢迎回来'}</h2></div></div>
+      <p className="hint">{mode === 'setup' ? '使用启用码设置管理员密码。' : '登录后查看、处理和导出用户需求。'}</p>
       <form onSubmit={submitAuth}>
         {mode === 'setup' ? <label>一次性启用码<input autoComplete="off" required value={setupCode} onChange={e => setSetupCode(e.target.value)} /></label> : <label>账号<input autoComplete="username" required value={username} onChange={e => setUsername(e.target.value)} /></label>}
         <label>{mode === 'setup' ? '设置密码（至少 12 位）' : '密码'}<input type="password" autoComplete={mode === 'setup' ? 'new-password' : 'current-password'} minLength={mode === 'setup' ? 12 : undefined} required value={password} onChange={e => setPassword(e.target.value)} /></label>
-        <button type="submit" disabled={busy}>{busy ? '请稍候…' : mode === 'setup' ? '启用并进入后台' : '登录'}</button>
+        <button type="submit" disabled={busy}>{busy ? '请稍候…' : mode === 'setup' ? '启用并进入后台' : '进入工作台'}<ArrowUpRight size={17} aria-hidden="true" /></button>
       </form>
       {message && <p role="alert" className="admin-message">{message}</p>}
-    </section>}
+      </section>
+      <p className="auth-footnote">仅供授权管理员使用 · 用户需求仅在后台显示</p>
+    </div>}
     {mode === 'dashboard' && <div className="admin-main">
-      <div className="admin-title"><div><p className="eyebrow">FDE 工作台</p><h1>需求管理</h1><p className="hint">查看用户提交的问题，记录处理进展。</p></div><button type="button" className="secondary" disabled={busy} onClick={exportCsv}>导出当前筛选 CSV</button></div>
+      <div className="admin-title"><div><span className="admin-eyebrow"><span />产业园 FDE 总站 · 管理工作台</span><h1>每一个问题，都有回应。</h1><p className="hint">需求管理 · 查看用户提交的问题，记录处理进展。</p></div><button type="button" className="secondary" disabled={busy} onClick={exportCsv}>导出当前筛选 CSV <ArrowUpRight size={16} aria-hidden="true" /></button></div>
       <form className="filter-bar" onSubmit={e => { e.preventDefault(); setPage(1); setFilter({ ...draft }); setSelected(null); }}>
         <label>公司关键词<input value={draft.company} maxLength={160} placeholder="搜索公司" onChange={e => setDraft({ ...draft, company: e.target.value })} /></label>
         <label>开始日期<input type="date" value={draft.from} onChange={e => setDraft({ ...draft, from: e.target.value })} /></label>
@@ -139,5 +146,6 @@ export default function AdminPage() {
       <div className="pager"><button type="button" className="secondary" disabled={page <= 1} onClick={() => setPage(page - 1)}>上一页</button><span>第 {page} / {Math.max(1, Math.ceil(total / 25))} 页</span><button type="button" className="secondary" disabled={page * 25 >= total} onClick={() => setPage(page + 1)}>下一页</button></div>
       {selected && <div className="detail-backdrop"><dialog open className="detail-panel" aria-labelledby="detail-title"><div className="detail-top"><h2 id="detail-title">需求 #{selected.id}</h2><button type="button" className="quiet" onClick={() => setSelected(null)}>关闭</button></div><dl><dt>公司</dt><dd>{selected.company}</dd><dt>联系人</dt><dd>{selected.name}</dd><dt>联系方式</dt><dd>{selected.contact}</dd><dt>提交时间</dt><dd>{new Date(selected.created_at).toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai', hour12: false })}</dd><dt>完整问题</dt><dd className="full-question">{selected.question}</dd></dl><label>处理状态<select value={selected.status} onChange={e => setSelected({ ...selected, status: e.target.value as Requirement['status'] })}>{Object.entries(labels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><label>内部备注<textarea rows={6} maxLength={4000} value={selected.internal_note} placeholder="记录沟通进展，仅管理员可见" onChange={e => setSelected({ ...selected, internal_note: e.target.value })} /></label><button type="button" disabled={busy} onClick={save}>{busy ? '保存中…' : '保存修改'}</button></dialog></div>}
     </div>}
+    <footer className="admin-footer">© 2026 序动科技 · 企业 AI 服务 <span>FDE 需求管理</span></footer>
   </main>;
 }
