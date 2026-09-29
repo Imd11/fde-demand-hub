@@ -4,16 +4,16 @@ import { RequirementForm } from '@/components/sites/devorder-csdn-net-e00368e5/r
 
 // Fictional profiles for the local design preview, not confirmed CSDN experts.
 const demoExperts = [
-  { name: '陈远', city: '北京', role: '企业 AI 应用架构师', specialties: ['RAG 知识库', '智能体开发'], experience: '制造企业内部知识问答平台' },
-  { name: '林悦', city: '上海', role: 'AI 产品与交付顾问', specialties: ['业务梳理', 'AI 产品设计'], experience: '企业 AI 应用从试点到上线' },
-  { name: '张衡', city: '唐山', role: '工业智能化工程师', specialties: ['设备运维', '生产数据分析'], experience: '工业设备巡检与故障知识库' },
-  { name: '周宁', city: '天津', role: '数据工程师', specialties: ['数据治理', '企业系统集成'], experience: '业务系统与 AI 应用数据接入' },
-  { name: '王睿', city: '北京', role: '智能体开发工程师', specialties: ['任务编排', '流程自动化'], experience: '采购与合同处理智能助手' },
-  { name: '许嘉', city: '杭州', role: 'AI 内容应用工程师', specialties: ['文案生成', '图像工作流'], experience: '直播素材整理与内容创作' },
-  { name: '李珂', city: '苏州', role: '计算机视觉工程师', specialties: ['图像识别', '工业视觉检测'], experience: '生产线缺陷识别与质检辅助' },
-  { name: '赵谦', city: '深圳', role: '企业应用全栈工程师', specialties: ['Web 应用', '业务系统开发'], experience: '企业 AI 服务平台开发与部署' },
-  { name: '顾言', city: '南京', role: '能源行业 AI 顾问', specialties: ['能源管理', '运行数据分析'], experience: '园区能耗分析与运营辅助' },
-  { name: '沈禾', city: '成都', role: 'AI 应用测试工程师', specialties: ['检索评估', '生成质量测试'], experience: '企业知识助手的效果评测' },
+  { name: '专家 01', city: '北京', role: '企业 AI 应用架构师', specialties: ['RAG 知识库', '智能体开发'], experience: '制造企业内部知识问答平台' },
+  { name: '专家 02', city: '上海', role: 'AI 产品与交付顾问', specialties: ['业务梳理', 'AI 产品设计'], experience: '企业 AI 应用从试点到上线' },
+  { name: '专家 03', city: '唐山', role: '工业智能化工程师', specialties: ['设备运维', '生产数据分析'], experience: '工业设备巡检与故障知识库' },
+  { name: '专家 04', city: '天津', role: '数据工程师', specialties: ['数据治理', '企业系统集成'], experience: '业务系统与 AI 应用数据接入' },
+  { name: '专家 05', city: '北京', role: '智能体开发工程师', specialties: ['任务编排', '流程自动化'], experience: '采购与合同处理智能助手' },
+  { name: '专家 06', city: '杭州', role: 'AI 内容应用工程师', specialties: ['文案生成', '图像工作流'], experience: '直播素材整理与内容创作' },
+  { name: '专家 07', city: '苏州', role: '计算机视觉工程师', specialties: ['图像识别', '工业视觉检测'], experience: '生产线缺陷识别与质检辅助' },
+  { name: '专家 08', city: '深圳', role: '企业应用全栈工程师', specialties: ['Web 应用', '业务系统开发'], experience: '企业 AI 服务平台开发与部署' },
+  { name: '专家 09', city: '南京', role: '能源行业 AI 顾问', specialties: ['能源管理', '运行数据分析'], experience: '园区能耗分析与运营辅助' },
+  { name: '专家 10', city: '成都', role: 'AI 应用测试工程师', specialties: ['检索评估', '生成质量测试'], experience: '企业知识助手的效果评测' },
 ];
 
 export default function Home() {
